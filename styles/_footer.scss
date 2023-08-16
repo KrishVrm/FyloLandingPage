@@ -1,0 +1,39 @@
+.footer {
+  background-color: var(--Very-Dark-Blue);
+  min-height: 40vh;
+  display: grid;
+  grid-template-columns: auto auto;
+  a {
+    font-weight: 400;
+  }
+  @include breakpoint-down(medium) {
+    gap: 2rem;
+    grid-template-rows: auto auto;
+    grid-template-columns: none;
+  }
+  @include breakpoint-down(small) {
+  }
+  align-items: center;
+  padding: 2rem 6%;
+  &_left {
+    .content {
+      color: white;
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-top: 1rem;
+      }
+    }
+  }
+  &_mid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 2rem;
+    &_links {
+      transition: all 0.2s ease-out;
+      color: white;
+      &:hover {
+        color: var(--Bright-Blue);
+      }
+    }
+  }
+}

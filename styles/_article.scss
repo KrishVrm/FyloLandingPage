@@ -1,0 +1,122 @@
+.second-section {
+  @include breakpoint-down(medium) {
+    margin-top: 5rem;
+  }
+  &:before {
+    content: "";
+    border-top-left-radius: 100% 10%;
+    border-top-right-radius: 100% 10%;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    background-color: var(--Light-Grayish-Blue);
+    min-height: 100vh;
+    @include breakpoint-down(medium) {
+      height: 65rem;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  &-container {
+    padding: 0 6%;
+    @include flex-box(row, space-between, center, nowrap);
+    @include breakpoint-down(medium) {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+  }
+  &_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include breakpoint-down(medium) {
+      order: 2;
+      align-items: center;
+    }
+
+    a {
+      color: var(--Moderate-Cyan);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--Moderate-Cyan);
+        transition: all 0.3s;
+      }
+      &:hover {
+        &::before {
+          width: 180px;
+        }
+      }
+      div {
+        height: 2rem;
+        width: 2rem;
+        background: url(images/icon-arrow.svg) no-repeat center;
+        background-size: cover;
+      }
+    }
+    .card {
+      @include flex-box(column, center, flex-start, nowrap);
+      padding: 1.5rem;
+      width: 22rem;
+      background: white;
+      box-shadow: 0 0 10px 0 hsl(0, 0%, 95%);
+      border-radius: 3px;
+      gap: 0.5rem;
+      @include breakpoint-down(medium) {
+        margin-bottom: 3rem;
+        text-align: left;
+      }
+      &_icon {
+        height: 1rem;
+        width: 1rem;
+        background: url(images/icon-quotes.svg) no-repeat center;
+      }
+      &_content {
+        line-height: 1.6;
+      }
+      &_author {
+        @include flex-box(row, flex-start, center, nowrap);
+        gap: 12px;
+        &_img {
+          border-radius: 50px;
+          background: url(images/avatar-testimonial.jpg) no-repeat center;
+          background-size: contain;
+          height: 2.5rem;
+          width: 2.5rem;
+        }
+        &_content {
+          &_position {
+            color: var(--Desaturated-Blue);
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  &_right {
+    width: 100%;
+    @include breakpoint-down(small) {
+      order: 1;
+    }
+    &_img {
+      height: 27rem;
+      width: 100%;
+      background: url(images/illustration-2.svg) no-repeat right;
+      @include breakpoint-down(medium) {
+        background-position: center;
+      }
+      background-size: contain;
+    }
+  }
+}

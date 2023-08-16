@@ -1,0 +1,53 @@
+.hero {
+  min-height: 100vh;
+  &_container {
+    @include flex-box(row, space-between, center, nowrap);
+    padding: 27px 6%;
+    @include breakpoint-down(medium) {
+      flex-direction: column;
+    }
+    @include breakpoint-down(medium) {
+      gap: 3rem;
+    }
+    &_left {
+      @include flex-box(column, center, flex-start, nowrap);
+      gap: 1.5rem;
+      @include breakpoint-down(medium) {
+        order: 2;
+        align-items: center;
+        text-align: center;
+      }
+      .input-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        @include breakpoint-down(medium) {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .cta {
+          @include breakpoint-down(medium) {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &_right {
+      width: 100%;
+      @include breakpoint-down(medium) {
+        order: 1;
+      }
+      &_img {
+        background: url(images/illustration-1.svg) no-repeat;
+        background-size: contain;
+        background-position: right;
+        height: 27rem;
+        width: 100%;
+        @include breakpoint-down(medium) {
+          background-position: center;
+          height: 18rem;
+        }
+      }
+    }
+  }
+}
